@@ -1,34 +1,33 @@
-import { UseState } from "react";
-import poke from './pokeapi_256.png'
+import { useState } from "react";
+import poke from './assets/pokeapi_256.png'
 
 function App() {
 
+  const Formulario = (props) => {
 
- const Formulario = (props) => {
+    const [nome, setNome] = useState("Memphis")
 
-  const [nome, setNome] = useState("Memphis")
+    return (
+      <div>
+
+        <input
+          className="nome"
+          name = "nome"
+          onChange={(e)=>{setNome(e.target.value)}}
+          placeholder={props.sombra != null ? props.sombra : "Texto padrão"}
+          type="text" />
+
+        <button 
+          className="botao"
+          onClick={()=>{alert(nome)}} >
+            CLIQUE AQUI
+        </button>
+
+      </div>
+    )
+  }
 
   return (
-    <div>
-    
-       <input
-       className="nome"
-       name = "nome"
-       onChange={(e)=>{setNome(e.target.value)}}
-       placeholder={props.sombra != null ? props.sombra : "Texto padrão"}
-       type="text" />
-
-      <button
-      className="botao"
-      onClick={()=>{alert(nome)}} >
-        CLIQUE AQUI
-      </button>
-
-    </div>
-   )
- }
-
-  return(
     <div>
       <h3>Pizzaria 2F</h3>
       <p>Texto do parágrafo</p>
@@ -39,10 +38,13 @@ function App() {
       <Formulario sombra="(99)90000-0000"/>
       <Formulario />
       <Formulario />
-      <Formulario /> 
+      <Formulario />
 
     </div>
   )
 }
 
 export default App
+ 
+      
+
